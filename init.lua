@@ -1,3 +1,3 @@
-require('conf')
-require('keyb')
-require('plug')
+require("conf")
+require("keyb")
+require("plug")

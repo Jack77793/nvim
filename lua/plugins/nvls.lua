@@ -2,7 +2,7 @@ return {
     {
         "martineausimon/nvim-lilypond-suite",
         config = function()
-            require('nvls').setup({
+            require("nvls").setup({
                 lilypond = {
                     mappings = {
                         player = "<F3>",

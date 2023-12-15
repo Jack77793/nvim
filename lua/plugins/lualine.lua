@@ -3,12 +3,12 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = { "arkav/lualine-lsp-progress" },
         config = function()
-            require('lualine').setup {
+            require("lualine").setup {
                 options = {
                     icons_enabled = false,
-                    theme = 'adwaita',
-                    component_separators = { left = '', right = '' },
-                    section_separators = { left = '', right = '' },
+                    theme = "adwaita",
+                    component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" },
                     disabled_filetypes = {
                         statusline = {},
                         winbar = {}
@@ -23,28 +23,28 @@ return {
                     }
                 },
                 sections = {
-                    lualine_a = {'mode'},
-                    lualine_b = {'branch', 'diff', 'diagnostics'},
-                    lualine_c = {'filename', 'lsp_progress'},
-                    lualine_x = {'encoding', 'fileformat', 'filetype'},
-                    lualine_y = {'progress'},
-                    lualine_z = {'location'}
+                    lualine_a = {"mode"},
+                    lualine_b = {"branch", "diff", "diagnostics"},
+                    lualine_c = {"filename", "lsp_progress"},
+                    lualine_x = {"encoding", "fileformat", "filetype"},
+                    lualine_y = {"progress"},
+                    lualine_z = {"location"}
                 },
                 inactive_sections = {
                     lualine_a = {},
                     lualine_b = {},
-                    lualine_c = {'filename'},
-                    lualine_x = {'location'},
+                    lualine_c = {"filename"},
+                    lualine_x = {"location"},
                     lualine_y = {},
                     lualine_z = {}
                 },
                 tabline = {
-                    lualine_a = {'buffers'},
-                    lualine_b = {'branch'},
-                    lualine_c = {'filename'},
+                    lualine_a = {"buffers"},
+                    lualine_b = {"branch"},
+                    lualine_c = {"filename"},
                     lualine_x = {},
                     lualine_y = {},
-                    lualine_z = {'tabs'}
+                    lualine_z = {"tabs"}
                 },
                 winbar = {},
                 inactive_winbar = {},

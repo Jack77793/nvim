@@ -10,68 +10,68 @@ return {
             "saadparwaiz1/cmp_luasnip"
         },
         config = function()
-            require'cmp'.setup({
+            require"cmp".setup({
                 snippet = {
                     expand = function(args)
-                        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                        require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
                     end
                 },
                 window = {
-                    -- completion = require'cmp'.config.window.bordered(),
-                    -- documentation = require'cmp'.config.window.bordered(),
+                    -- completion = require"cmp".config.window.bordered(),
+                    -- documentation = require"cmp".config.window.bordered(),
                 },
-                mapping = require'cmp'.mapping.preset.insert({
-                    ['<C-b>'] = require'cmp'.mapping.scroll_docs(-4),
-                    ['<C-f>'] = require'cmp'.mapping.scroll_docs(4),
-                    ['<None>'] = require'cmp'.mapping.complete(),
-                    ['<C-e>'] = require'cmp'.mapping.abort(),
-                    ['<CR>'] = require'cmp'.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-                    ['<C-k>'] = require'cmp'.mapping.select_prev_item(),
-                    ['<C-j>'] = require'cmp'.mapping.select_next_item()
+                mapping = require"cmp".mapping.preset.insert({
+                    ["<C-b>"] = require"cmp".mapping.scroll_docs(-4),
+                    ["<C-f>"] = require"cmp".mapping.scroll_docs(4),
+                    ["<None>"] = require"cmp".mapping.complete(),
+                    ["<C-e>"] = require"cmp".mapping.abort(),
+                    ["<CR>"] = require"cmp".mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                    ["<C-k>"] = require"cmp".mapping.select_prev_item(),
+                    ["<C-j>"] = require"cmp".mapping.select_next_item()
                 }),
-                sources = require'cmp'.config.sources({
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' }
+                sources = require"cmp".config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" }
                 }, {
-                    { name = 'buffer' }
+                    { name = "buffer" }
                 })
             })
 
             -- Set configuration for specific filetype.
-            require'cmp'.setup.filetype('gitcommit', {
-                sources = require'cmp'.config.sources({
-                    { name = 'cmp_git' } -- You can specify the `cmp_git` source if you were installed it.
+            require"cmp".setup.filetype("gitcommit", {
+                sources = require"cmp".config.sources({
+                    { name = "cmp_git" } -- You can specify the `cmp_git` source if you were installed it.
                 }, {
-                    { name = 'buffer' }
+                    { name = "buffer" }
                 })
             })
 
-            -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-            require'cmp'.setup.cmdline({ '/', '?' }, {
-                mapping = require'cmp'.mapping.preset.cmdline(),
+            -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won"t work anymore).
+            require"cmp".setup.cmdline({ "/", "?" }, {
+                mapping = require"cmp".mapping.preset.cmdline(),
                 sources = {
-                    { name = 'buffer' }
+                    { name = "buffer" }
                 }
             })
 
-            -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-            require'cmp'.setup.cmdline(':', {
-                mapping = require'cmp'.mapping.preset.cmdline(),
-                sources = require'cmp'.config.sources({
-                    { name = 'path' }
+            -- Use cmdline & path source for ":" (if you enabled `native_menu`, this won"t work anymore).
+            require"cmp".setup.cmdline(":", {
+                mapping = require"cmp".mapping.preset.cmdline(),
+                sources = require"cmp".config.sources({
+                    { name = "path" }
                 }, {
-                    { name = 'cmdline' }
+                    { name = "cmdline" }
                 })
             })
 
             -- Set up lspconfig.
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
-            -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-            require('lspconfig')['clangd'].setup {
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            -- Replace <YOUR_LSP_SERVER> with each lsp server you"ve enabled.
+            require("lspconfig")["clangd"].setup {
                 capabilities = capabilities
             }
 
-            require('lspconfig')['pyright'].setup {
+            require("lspconfig")["pyright"].setup {
                 capabilities = capabilities
             }
         end
