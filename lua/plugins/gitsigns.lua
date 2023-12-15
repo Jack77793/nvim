@@ -1,9 +1,9 @@
 return {
     {
-        "phaazon/hop.nvim",
+        "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
         config = function()
-            require("hop").setup()
+            require("gitsigns").setup()
         end
     }
 }

@@ -1,8 +1,9 @@
 return {
     {
         "max397574/better-escape.nvim",
+        event = "VeryLazy",
         config = function()
-            require("better_escape").setup {
+            require("better_escape").setup({
                 mapping = {
                     "jk",
                     "jj"
@@ -10,7 +11,7 @@ return {
                 timeout = vim.o.timeoutlen,
                 clear_empty_lines = false,
                 keys = "<Esc>"
-            }
+            })
         end
     }
 }

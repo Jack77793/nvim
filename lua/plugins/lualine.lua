@@ -3,7 +3,7 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = { "arkav/lualine-lsp-progress" },
         config = function()
-            require("lualine").setup {
+            require("lualine").setup({
                 options = {
                     icons_enabled = false,
                     theme = "adwaita",
@@ -49,7 +49,7 @@ return {
                 winbar = {},
                 inactive_winbar = {},
                 extensions = {}
-            }
+            })
         end
     }
 }

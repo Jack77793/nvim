@@ -1,6 +1,7 @@
 return {
     {
         "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
@@ -10,7 +11,7 @@ return {
             "saadparwaiz1/cmp_luasnip"
         },
         config = function()
-            require"cmp".setup({
+            require("cmp").setup({
                 snippet = {
                     expand = function(args)
                         require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
@@ -33,8 +34,8 @@ return {
                     { name = "nvim_lsp" },
                     { name = "luasnip" }
                 }, {
-                    { name = "buffer" }
-                })
+                        { name = "buffer" }
+                    })
             })
 
             -- Set configuration for specific filetype.
@@ -42,8 +43,8 @@ return {
                 sources = require"cmp".config.sources({
                     { name = "cmp_git" } -- You can specify the `cmp_git` source if you were installed it.
                 }, {
-                    { name = "buffer" }
-                })
+                        { name = "buffer" }
+                    })
             })
 
             -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won"t work anymore).
@@ -60,20 +61,24 @@ return {
                 sources = require"cmp".config.sources({
                     { name = "path" }
                 }, {
-                    { name = "cmdline" }
-                })
+                        { name = "cmdline" }
+                    })
             })
 
             -- Set up lspconfig.
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             -- Replace <YOUR_LSP_SERVER> with each lsp server you"ve enabled.
-            require("lspconfig")["clangd"].setup {
+            require("lspconfig")["clangd"].setup({
                 capabilities = capabilities
-            }
+            })
 
-            require("lspconfig")["pyright"].setup {
+            require("lspconfig")["lua_ls"].setup({
                 capabilities = capabilities
-            }
+            })
+
+            require("lspconfig")["pyright"].setup({
+                capabilities = capabilities
+            })
         end
     }
 }

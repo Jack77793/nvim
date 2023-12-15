@@ -1,8 +1,9 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        event = "VeryLazy",
         config = function()
-            require"nvim-treesitter.configs".setup {
+            require("nvim-treesitter.configs").setup({
                 ensure_installed = { "bash", "c", "cpp", "lua", "vim", "nix", "python", "html", "xml", "css", "yaml", "toml", "ini", "json", "markdown" },
                 -- enable highlighting
                 highlight = {
@@ -23,7 +24,7 @@ return {
                 indent = {
                     enable = true
                 }
-            }
+            })
             -- enable folding
             vim.wo.foldmethod = "expr"
             vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
