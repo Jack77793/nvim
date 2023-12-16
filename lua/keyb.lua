@@ -20,6 +20,8 @@ map("n", "fh", "<Cmd>Telescope help_tags<CR>", opts)
 map("n", "tt", "<Cmd>ToggleTerm direction=float<CR>", opts)
 -- hop
 map("n", "fj", "<Cmd>HopWord<CR>", opts)
+-- zfvimim
+vim.g.ZFVimIM_keymap = 0
 -- lsp
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

@@ -46,10 +46,7 @@ return {
             \   '8' : [''],
             \   '9' : [''],
             \ }
-            let g:ZFVimIM_keymap = 0
-            nnoremap <expr><silent> \\ ZFVimIME_keymap_toggle_n()
             inoremap <expr><silent> \\ ZFVimIME_keymap_toggle_i()
-            vnoremap <expr><silent> \\ ZFVimIME_keymap_toggle_v()
             ]])
         end
     }
