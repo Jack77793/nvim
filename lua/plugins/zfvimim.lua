@@ -8,10 +8,10 @@ return {
         },
         config = function ()
             vim.cmd([[
-            let g:zf_git_user_email="jack77793@hotmail.com""
-            let g:zf_git_user_name="Jack77793"
-            let g:zf_git_user_token="0"
-            let g:ZFVimIM_cloudAsync_autoCleanup=30
+            let g:zf_git_user_email = "jack77793@hotmail.com""
+            let g:zf_git_user_name = "Jack77793"
+            let g:zf_git_user_token = "0"
+            let g:ZFVimIM_cloudAsync_autoCleanup = 30
             let g:ZFVimIM_symbolMap = {
             \   ' ' : [''],
             \   '`' : ['·'],
@@ -46,6 +46,10 @@ return {
             \   '8' : [''],
             \   '9' : [''],
             \ }
+            let g:ZFVimIM_keymap = 0
+            nnoremap <expr><silent> \\ ZFVimIME_keymap_toggle_n()
+            inoremap <expr><silent> \\ ZFVimIME_keymap_toggle_i()
+            vnoremap <expr><silent> \\ ZFVimIME_keymap_toggle_v()
             ]])
         end
     }
