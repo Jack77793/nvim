@@ -1,10 +1,10 @@
 return {
     {
-        "Mofiqul/adwaita.nvim",
+        "andersevenrud/nordic.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            -- vim.cmd.colorscheme "adwaita"
+            vim.cmd.colorscheme "nordic"
         end
     }
 }
