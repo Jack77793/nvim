@@ -8,8 +8,8 @@ return {
         config = function()
             -- change the highlight color
             vim.cmd([[
-            hi mr guibg=#2e3440 guifg=#ffffff guibg=#2e3440 guifg=#ffffff
-            hi mcl guibg=#3b4252 guifg=#ffffff guibg=#3b4252 guifg=#ffffff
+            hi mr guibg=#2e3440 guifg=#eceff4 guibg=#2e3440 guifg=#eceff4
+            hi mcl guibg=#3b4252 guifg=#8fbcbb guibg=#3b4252 guifg=#8fbcbb
             ]])
             vim.g.minimap_highlight_range = "mr"
             vim.g.minimap_cursor_color = "mcl"
