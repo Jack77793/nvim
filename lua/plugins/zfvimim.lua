@@ -1,5 +1,3 @@
-vim.g.ZFVimIM_keymap = 0
-
 return {
     {
         "ZSaberLv0/ZFVimIM",
@@ -8,6 +6,9 @@ return {
             "ZSaberLv0/ZFVimGitUtil",
             { url = "git@github.com:Jack77793/zfvimim-pinyin-base.git" }
         },
+        init = function ()
+            vim.g.ZFVimIM_keymap = 0
+        end,
         config = function ()
             vim.cmd([[
             let g:zf_git_user_email = "jack77793@hotmail.com""
