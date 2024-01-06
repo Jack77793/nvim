@@ -1,3 +1,5 @@
+vim.g.ZFVimIM_keymap = 0
+
 return {
     {
         "ZSaberLv0/ZFVimIM",
