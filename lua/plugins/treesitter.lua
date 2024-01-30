@@ -4,7 +4,7 @@ return {
         event = "VeryLazy",
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = { "bash", "c", "cpp", "lua", "vim", "nix", "python", "html", "xml", "css", "yaml", "toml", "ini", "json", "markdown" },
+                ensure_installed = { "bash", "c", "cpp", "lua", "vim", "python", "html", "xml", "css", "yaml", "toml", "ini", "json", "markdown" },
                 -- enable highlighting
                 highlight = {
                     enable = true,
