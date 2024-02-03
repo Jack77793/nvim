@@ -59,7 +59,7 @@ vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.opt.termguicolors = true
 if vim.g.neovide then
-    vim.o.guifont = "monospace:h15"
+    vim.o.guifont = "SarasaTermSC Nerd Font:h15"
     vim.opt.linespace = 0
     vim.g.neovide_scale_factor = 1.0
     vim.g.neovide_padding_top = 0
