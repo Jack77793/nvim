@@ -4,13 +4,38 @@ return {
         event = "VeryLazy",
         config = function()
             require("better_escape").setup({
-                mapping = {
-                    "jk",
-                    "jj"
-                },
                 timeout = vim.o.timeoutlen,
-                clear_empty_lines = false,
-                keys = "<Esc>"
+                default_mappings = true,
+                mappings = {
+                    i = {
+                        j = {
+                            -- These can all also be functions
+                            k = "<Esc>",
+                            j = "<Esc>",
+                        },
+                    },
+                    c = {
+                        j = {
+                            k = "<Esc>",
+                            j = "<Esc>",
+                        },
+                    },
+                    t = {
+                        j = {
+                            k = "<C-\\><C-n>",
+                        },
+                    },
+                    v = {
+                        j = {
+                            k = "<Esc>",
+                        },
+                    },
+                    s = {
+                        j = {
+                            k = "<Esc>",
+                        },
+                    },
+                },
             })
         end
     }
