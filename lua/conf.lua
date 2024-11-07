@@ -58,3 +58,28 @@ vim.opt.clipboard:prepend "unnamedplus"
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.opt.termguicolors = true
+if vim.g.neovide then
+    vim.o.guifont = "SarasaTermSC Nerd Font:h15"
+    vim.opt.linespace = 0
+    vim.g.neovide_scale_factor = 1.0
+    vim.g.neovide_padding_top = 0
+    vim.g.neovide_padding_bottom = 0
+    vim.g.neovide_padding_right = 0
+    vim.g.neovide_padding_left = 0
+    vim.g.neovide_floating_blur_amount_x = 2.0
+    vim.g.neovide_floating_blur_amount_y = 2.0
+    vim.g.neovide_transparency = 0.9
+    vim.g.neovide_scroll_animation_length = 0.3
+    vim.g.neovide_hide_mouse_when_typing = false
+    vim.g.neovide_theme = "auto"
+    vim.g.neovide_refresh_rate = 60
+    vim.g.neovide_refresh_rate_idle = 5
+    vim.g.neovide_no_idle = false
+    vim.g.neovide_remember_window_size = true
+    vim.g.neovide_cursor_vfx_mode = "pixiedust"
+else
+    vim.cmd([[
+        highlight Normal guibg=None ctermbg=None
+        highlight NonText guibg=None ctermbg=None
+    ]])
+end
