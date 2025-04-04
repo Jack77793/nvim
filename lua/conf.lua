@@ -48,7 +48,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 -- unvisible character display
 vim.opt.list = true
-vim.opt.listchars:append "space:·"
+vim.opt.listchars:append "space:･"
 vim.opt.listchars:append "eol:↲"
 -- completing enhancement
 vim.opt.wildmenu = true
