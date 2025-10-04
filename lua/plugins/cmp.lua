@@ -37,9 +37,9 @@ return {
             })
 
             local lss = {"clangd", "lua_ls", "pyright"}
-            local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
             for _, v in ipairs(lss) do
-                require("lspconfig")[v].setup({
+                vim.lsp.config(v, {
                     capabilities = capabilities
                 })
             end
