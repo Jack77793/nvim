@@ -58,5 +58,3 @@ vim.opt.clipboard:prepend "unnamedplus"
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.opt.termguicolors = true
-
-vim.cmd [[ TransparentEnable ]]
