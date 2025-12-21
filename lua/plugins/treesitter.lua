@@ -3,7 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = { "bash", "c", "cpp", "lua", "vim", "python", "html", "xml", "css", "yaml", "toml", "ini", "json", "markdown" },
+                ensure_installed = { "bash", "c", "cpp", "lua", "vim", "python", "html", "xml", "css", "yaml", "toml", "ini", "json", "markdown", "latex" },
                 -- enable highlighting
                 highlight = {
                     enable = true,
