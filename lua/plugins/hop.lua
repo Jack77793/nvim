@@ -1,9 +1,12 @@
 return {
     {
-        "phaazon/hop.nvim",
+        "smoka7/hop.nvim",
+        version = "*",
         event = "VeryLazy",
         config = function()
-            require("hop").setup()
+            require("hop").setup({
+                keys = 'etovxqpdygfblzhckisuran'
+            })
         end
     }
 }
