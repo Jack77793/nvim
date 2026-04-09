@@ -27,7 +27,10 @@ return {
                     "norg",
                     "toggleterm"
                 },
-                under_cursor = false
+                under_cursor = true,
+                large_file_cutoff = 6400,
+                large_file_overrides = nil,
+                min_count_to_highlight = 2
             })
         end
     }
