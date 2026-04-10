@@ -47,10 +47,10 @@ return {
                         lilyGrob = { link = "Include" },
                         lilyTranslator = { link = "Type" },
                         lilyPitch = { link = "Function" },
-                        lilyChord = { 
-                            ctermfg = "lightMagenta", 
-                            fg = "lightMagenta", 
-                            bold = true 
+                        lilyChord = {
+                            ctermfg = "lightMagenta",
+                            fg = "lightMagenta",
+                            bold = true
                         }
                     }
                 },

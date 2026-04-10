@@ -20,6 +20,24 @@ map("n", "fh", "<Cmd>Telescope help_tags<CR>", opts)
 map("n", "tt", "<Cmd>ToggleTerm direction=float<CR>", opts)
 -- hop
 map("n", "fj", "<Cmd>HopWord<CR>", opts)
+-- barbar
+map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
+map("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
+
+map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
+map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
+map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
+map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
+map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
+map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
+map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
+map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
+map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
+map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
+
+map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
+
+map("n", "<A-q>", "<Cmd>BufferClose<CR>", opts)
 -- lsp
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
