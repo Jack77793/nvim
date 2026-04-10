@@ -43,6 +43,7 @@ return {
                 vim.lsp.config(v, {
                     capabilities = capabilities
                 })
+                vim.lsp.enable(v)
             end
 
             -- autopair settings
