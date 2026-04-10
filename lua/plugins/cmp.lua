@@ -17,7 +17,7 @@ return {
                         require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
                     end
                 },
-                mapping = require"cmp".mapping.preset.insert({
+                mapping = require("cmp").mapping.preset.insert({
                     ["<C-b>"] = require"cmp".mapping.scroll_docs(-4),
                     ["<C-f>"] = require"cmp".mapping.scroll_docs(4),
                     ["<None>"] = require"cmp".mapping.complete(),
@@ -36,13 +36,20 @@ return {
                 })
             })
 
-            local lss = {"clangd", "lua_ls", "pyright"}
+            -- lsp settings
+            local lss = { "clangd", "lua_ls", "pyright", "ltex_plus", "bashls" }
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             for _, v in ipairs(lss) do
                 vim.lsp.config(v, {
                     capabilities = capabilities
                 })
             end
+
+            -- autopair settings
+            require("cmp").event:on(
+                "confirm_done",
+                require("nvim-autopairs.completion.cmp").on_confirm_done()
+            )
         end
     }
 }
