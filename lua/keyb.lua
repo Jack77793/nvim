@@ -36,8 +36,8 @@ map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
 map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
 
 map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
-
 map("n", "<A-q>", "<Cmd>BufferClose<CR>", opts)
+map("n", "<A-b>", "<Cmd>BufferPick<CR>", opts)
 -- lsp
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

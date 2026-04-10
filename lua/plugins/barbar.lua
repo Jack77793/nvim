@@ -18,13 +18,14 @@ return {
                         [ vim.diagnostic.severity.HINT ] = { enabled = true },
                     },
                     gitsigns = {
-                        added = {enabled = true, icon = '+'},
-                        changed = {enabled = true, icon = '~'},
-                        deleted = {enabled = true, icon = '-'}
+                        added = { enabled = true, icon = "+" },
+                        changed = { enabled = true, icon = "~" },
+                        deleted = { enabled = true, icon = "-" }
                     },
-                    modified = {button = '●'},
-                    pinned = { button = '', filename = true},
-                }
+                    modified = { button = "●" },
+                    pinned = { button = "", filename = true }
+                },
+                minimum_padding = 1
             })
         end
     }
