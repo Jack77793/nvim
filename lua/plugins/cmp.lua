@@ -37,7 +37,7 @@ return {
             })
 
             -- lsp settings
-            local lss = { "clangd", "lua_ls", "pyright", "bashls" }
+            local lss = { "clangd", "lua_ls", "pylsp", "bashls" }
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             for _, v in ipairs(lss) do
                 vim.lsp.config(v, {
