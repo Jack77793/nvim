@@ -1,7 +1,5 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 -- nvim
 map("n", "sv", "<Cmd>vsp<CR>", opts)
 map("n", "sb", "<Cmd>sp<CR>", opts)
@@ -38,6 +36,12 @@ map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
 map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
 map("n", "<A-q>", "<Cmd>BufferClose<CR>", opts)
 map("n", "<A-b>", "<Cmd>BufferPick<CR>", opts)
+-- codewindow
+vim.keymap.set("n", "mo", require("codewindow").open_minimap)
+vim.keymap.set("n", "mc", require("codewindow").close_minimap)
+vim.keymap.set("n", "mm", require("codewindow").toggle_minimap)
+vim.keymap.set("n", "mf", require("codewindow").toggle_focus)
+
 -- lsp
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

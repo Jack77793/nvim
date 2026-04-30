@@ -3,7 +3,7 @@ return {
         "gorbit99/codewindow.nvim",
         config = function()
             require("codewindow").setup({
-                auto_enable = true,
+                auto_enable = false,
                 max_lines = 6400,
                 minimap_width = 16,
                 screen_bounds = "background",
