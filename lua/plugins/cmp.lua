@@ -9,6 +9,7 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
             "saadparwaiz1/cmp_luasnip",
+            "onsails/lspkind.nvim"
         },
         config = function()
             require("cmp").setup({
@@ -33,11 +34,29 @@ return {
                     { name = "path" },
                     { name = "treesitter" },
                     { name = "buffer" }
-                })
+                }),
+
+                window = {
+                    completion = {
+                        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+                        col_offset = -3,
+                        side_padding = 0
+                    }
+                },
+                formatting = {
+                    fields = { "icon", "abbr", "menu", "kind" },
+                    format = function(entry, vim_item)
+                        local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                        kind.icon = " " .. (kind.icon or "") .. "  "
+                        kind.kind = " (" .. (kind.kind or "") .. ") "
+
+                        return kind
+                    end
+                }
             })
 
             -- lsp settings
-            local lss = { "clangd", "lua_ls", "pylsp", "bashls" }
+            local lss = { "clangd", "lua_ls", "pylsp", "bashls", "rust_analyzer" }
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             for _, v in ipairs(lss) do
                 vim.lsp.config(v, {
