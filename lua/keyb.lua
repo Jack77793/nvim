@@ -1,41 +1,41 @@
-local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 -- nvim
-map("n", "sv", "<Cmd>vsp<CR>", opts)
-map("n", "sb", "<Cmd>sp<CR>", opts)
-map("n", "sc", "<C-w>c", opts)
-map("n", "so", "<C-w>o", opts)
-map("n", "sh", "<C-w>h", opts)
-map("n", "sj", "<C-w>j", opts)
-map("n", "sk", "<C-w>k", opts)
-map("n", "sl", "<C-w>l", opts)
--- telescope
-map("n", "ff", "<Cmd>Telescope fd<CR>", opts)
-map("n", "fg", "<Cmd>Telescope live_grep<CR>", opts)
-map("n", "fb", "<Cmd>Telescope buffers<CR>", opts)
-map("n", "fh", "<Cmd>Telescope help_tags<CR>", opts)
+vim.keymap.set("n", "sv", "<Cmd>vsp<CR>", opts)
+vim.keymap.set("n", "sb", "<Cmd>sp<CR>", opts)
+vim.keymap.set("n", "sc", "<C-w>c", opts)
+vim.keymap.set("n", "so", "<C-w>o", opts)
+vim.keymap.set("n", "sh", "<C-w>h", opts)
+vim.keymap.set("n", "sj", "<C-w>j", opts)
+vim.keymap.set("n", "sk", "<C-w>k", opts)
+vim.keymap.set("n", "sl", "<C-w>l", opts)
 -- toggleterm
-map("n", "tt", "<Cmd>ToggleTerm direction=float<CR>", opts)
+vim.keymap.set("n", "tt", "<Cmd>ToggleTerm direction=float<CR>", opts)
 -- hop
-map("n", "fj", "<Cmd>HopWord<CR>", opts)
+vim.keymap.set("n", "fj", "<Cmd>HopWord<CR>", opts)
 -- barbar
-map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
-map("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
+vim.keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
+vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
 
-map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
-map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
-map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
-map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
-map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
-map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
-map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
-map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
-map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
-map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
+vim.keymap.set("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
+vim.keymap.set("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
+vim.keymap.set("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
+vim.keymap.set("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
+vim.keymap.set("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
+vim.keymap.set("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
+vim.keymap.set("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
+vim.keymap.set("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
+vim.keymap.set("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
+vim.keymap.set("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
 
-map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
-map("n", "<A-q>", "<Cmd>BufferClose<CR>", opts)
-map("n", "<A-b>", "<Cmd>BufferPick<CR>", opts)
+vim.keymap.set("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
+vim.keymap.set("n", "<A-q>", "<Cmd>BufferClose<CR>", opts)
+vim.keymap.set("n", "<A-b>", "<Cmd>BufferPick<CR>", opts)
+-- telescope
+local telescope = require("telescope.builtin")
+vim.keymap.set("n", "ff", telescope.find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "fg", telescope.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set("n", "fb", telescope.buffers, { desc = "Telescope buffers" })
+vim.keymap.set("n", "fh", telescope.help_tags, { desc = "Telescope help tags" })
 
 -- incremental selection treesitter/lsp
 vim.keymap.set({ "n", "x", "o" }, "<CR>", function()
@@ -73,9 +73,13 @@ end, { expr = true, desc = "Format line with conform or fallback to treesitter i
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Previous diagnostic" })
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Next diagnostic" })
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -87,23 +91,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Buffer local mappings.
 		-- See `:help vim.lsp.*` for documentation on any of the below functions
-		local opts = { buffer = ev.buf }
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "gk", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "gh", vim.lsp.buf.signature_help, opts)
-		-- vim.keymap.set("n", "gwa", vim.lsp.buf.add_workspace_folder, opts)
-		-- vim.keymap.set("n", "gwr", vim.lsp.buf.remove_workspace_folder, opts)
+		local buffer = { buffer = ev.buf }
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, buffer)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, buffer)
+		vim.keymap.set("n", "gk", vim.lsp.buf.hover, buffer)
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, buffer)
+		vim.keymap.set("n", "gh", vim.lsp.buf.signature_help, buffer)
+		-- vim.keymap.set("n", "gwa", vim.lsp.buf.add_workspace_folder, buffer)
+		-- vim.keymap.set("n", "gwr", vim.lsp.buf.remove_workspace_folder, buffer)
 		-- vim.keymap.set("n", "gwl", function()
 		--     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		-- end, opts)
-		-- vim.keymap.set("n", "gDD", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "gR", vim.lsp.buf.rename, opts)
-		-- vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		-- end, buffer)
+		-- vim.keymap.set("n", "gDD", vim.lsp.buf.type_definition, buffer)
+		vim.keymap.set("n", "gR", vim.lsp.buf.rename, buffer)
+		-- vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, buffer)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, buffer)
 		-- vim.keymap.set("n", "gf", function()
 		--     vim.lsp.buf.format { async = true }
-		-- end, opts)
+		-- end, buffer)
 	end,
 })
