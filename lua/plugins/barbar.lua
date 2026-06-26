@@ -1,7 +1,7 @@
 return {
 	plugins = {
-		{ src = "https://github.com/romgrk/barbar.nvim" },
-		{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+		"https://github.com/romgrk/barbar.nvim",
+		"https://github.com/nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		vim.g.barbar_auto_setup = false

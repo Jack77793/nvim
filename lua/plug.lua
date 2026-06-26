@@ -3,6 +3,7 @@ local function modname(file)
 	return file:match("lua[/\\](.+)%.lua$"):gsub("[/\\]", ".")
 end
 
+local all_hooks = {}
 local all_plugins = {}
 local all_config_aheads = {}
 local all_configs = {}
@@ -12,6 +13,10 @@ table.sort(files)
 -- traverse plugin files
 for _, file in ipairs(files) do
 	local f = require(modname(file))
+
+	if f.hook then
+		table.insert(all_hooks, f.hook)
+	end
 
 	if f.plugins then
 		vim.list_extend(all_plugins, f.plugins)
@@ -24,6 +29,11 @@ for _, file in ipairs(files) do
 	if f.config then
 		table.insert(all_configs, f.config)
 	end
+end
+
+-- run hooks
+for _, hook in ipairs(all_hooks) do
+	hook()
 end
 
 -- install plugins
